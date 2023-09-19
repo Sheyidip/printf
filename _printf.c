@@ -12,7 +12,7 @@ int my_unique_printf(const char *my_format, ...)
     int i, my_printed_chars = 0;
     int my_flags, my_width, my_precision, my_size, my_buff_ind = 0;
     va_list my_list;
-    char my_buffer[BUFF_SIZE];
+    char my_buffer[BUFF_SIZE_MY];
 
     if (my_format == NULL)
         return (-1);
@@ -24,19 +24,19 @@ int my_unique_printf(const char *my_format, ...)
         if (my_format[i] != '%')
         {
             my_buffer[my_buff_ind++] = my_format[i];
-            if (my_buff_ind == BUFF_SIZE)
+            if (my_buff_ind == BUFF_SIZE_MY)
                 my_print_buffer(my_buffer, &my_buff_ind);
             my_printed_chars++;
         }
         else
         {
             my_print_buffer(my_buffer, &my_buff_ind);
-            my_flags = get_flags(my_format, &i);
-            my_width = get_width(my_format, &i, my_list);
-            my_precision = get_precision(my_format, &i, my_list);
-            my_size = get_size(my_format, &i);
+            my_flags = get_flags_my(my_format, &i);
+            my_width = get_width_my(my_format, &i, my_list);
+            my_precision = get_precision_my(my_format, &i, my_list);
+            my_size = get_size_my(my_format, &i);
             ++i;
-            my_printed = handle_print(my_format, &i, my_list, my_buffer,
+            my_printed = handle_print_my(my_format, &i, my_list, my_buffer,
                 my_flags, my_width, my_precision, my_size);
             if (my_printed == -1)
                 return (-1);
