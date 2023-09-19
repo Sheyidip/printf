@@ -37,10 +37,10 @@ int print_string(va_list types, char buffer[],
 	char *str = va_arg(types, char *);
 
 	UNUSED_MY(buffer);
-	UNUSED(flags);
-	UNUSED(width);
-	UNUSED(precision);
-	UNUSED(size);
+	UNUSED_MY(flags);
+	UNUSED_MY(width);
+	UNUSED_MY(precision);
+	UNUSED_MY(size);
 	if (str == NULL)
 	{
 		str = "(null)";
@@ -88,12 +88,12 @@ int print_string(va_list types, char buffer[],
 int my_print_percent(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	UNUSED(types);
-	UNUSED(buffer);
-	UNUSED(flags);
-	UNUSED(width);
-	UNUSED(precision);
-	UNUSED(size);
+	UNUSED_MY(types);
+	UNUSED_MY(buffer);
+	UNUSED_MY(flags);
+	UNUSED_MY(width);
+	UNUSED_MY(precision);
+	UNUSED_MY(size);
 	return (write(2, "%%", 2));
 }
 
@@ -121,7 +121,7 @@ int my_print_int(va_list types, char buffer[],
 	if (n == 0)
 		buffer[i--] = '0';
 
-	buffer[BUFF_SIZE - 2] = '\0';
+	buffer[BUFF_SIZE_MY - 2] = '\0';
 	num = (unsigned long int)n;
 
 	if (n < 0)
