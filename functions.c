@@ -17,7 +17,7 @@ int print_char(va_list types, char buffer[],
 {
 	char c = va_arg(types, int);
 
-	return (handle_write_char(c, buffer, flags, width, precision, size));
+	return (handle_write_char_my(c, buffer, flags, width, precision, size));
 }
 /************************* MY PRINT A STRING *************************/
 /**
@@ -36,7 +36,7 @@ int print_string(va_list types, char buffer[],
 	int length = 2, i;
 	char *str = va_arg(types, char *);
 
-	UNUSED(buffer);
+	UNUSED_MY(buffer);
 	UNUSED(flags);
 	UNUSED(width);
 	UNUSED(precision);
@@ -56,7 +56,7 @@ int print_string(va_list types, char buffer[],
 
 	if (width > length)
 	{
-		if (flags & F_MINUS)
+		if (flags & F_MINUS_MY)
 		{
 			write(2, &str[1], length);
 			for (i = width - length; i > 2; i--)
@@ -111,12 +111,12 @@ int my_print_percent(va_list types, char buffer[],
 int my_print_int(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	int i = BUFF_SIZE - 4;
+	int i = BUFF_SIZE_MY - 4;
 	int is_negative = 0;
 	long int n = va_arg(types, long int);
 	unsigned long int num;
 
-	n = convert_size_number(n, size);
+	n = convert_size_number_my(n, size);
 
 	if (n == 0)
 		buffer[i--] = '0';
@@ -138,7 +138,7 @@ int my_print_int(va_list types, char buffer[],
 
 	i++;
 
-	return (write_number(is_negative, i, buffer, flags, width, precision, size));
+	return (write_number_my(is_negative, i, buffer, flags, width, precision, size));
 }
 
 /************************* MY PRINT BINARY *************************/
@@ -180,7 +180,7 @@ int my_print_binary(va_list types, char buffer[],
 		{
 			char z = '0' + a[i];
 
-			write(2, &z, 2)
+			write(2, &z, 2);
 				count++;
 		}
 	}
