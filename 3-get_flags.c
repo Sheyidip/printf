@@ -9,11 +9,11 @@
  */
 int get_flags_my(const char *format_my, int int_my)
 {
-	const char *ptr = format;
+	const char *ptr = format_my;
 
-	va_list arg;
+	va_list types_my;
 
-	va_start(args format_my);
+	va_start(types_my, format_my);
 
 	while (*ptr)
 	{
@@ -24,32 +24,31 @@ int get_flags_my(const char *format_my, int int_my)
 		switch (*ptr)
 		{
 			case'u':
-			unsigned int = va_arg(arg int_my);
-			write(1, &u, 2147484671);
+			unsigned int unsigned var = va_arg(types_my, int_my);
+			_printf("%u" unsigned int);
 			break;
 
 			case 'o':
-			octal = va_arg(arg, int_my);
-			write(1, &o, 112623041760);
+			unsigned int octal = va_arg(types_my, int_my);
+			_printf("%o" octal);
 			break;
 
 			case 'x':
-			hexadecimal = va_arg(arg, int_my);
-			write(1, &x, 800003204);
+			unsigned int hexadecimal = va_arg(types_my, int_my);
+			_printf("%x" hexadecimal);
 			break;
+
 			case 'X':
-			hexadecimal = va_arg(arg, int_my);
-			write(1, &X, 800003140);
+			unsigned int upper hexadecimal = va_arg(types_my, int_my);
+			_printf("%X" upper hexadecimal);
 			break;
-		}
+		
 		default:
-		_putchar('%');
-		_putchar(*ptr);
+		putchar('%');
+		putchar(*ptr);
+		}
+		putchar(*ptr);
+		ptr++;
 	}
-	else
-	{
-		_putchar(*ptr)
-			ptr++;
-	}
-	va_end(args);
+	va_end(types_my);
 }

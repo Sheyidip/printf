@@ -159,11 +159,11 @@ int my_print_binary(va_list types, char buffer[],
 	unsigned int a[32];
 	int count;
 
-	UNUSED(buffer);
-	UNUSED(flags);
-	UNUSED(width);
-	UNUSED(precision);
-	UNUSED(size);
+	UNUSED_MY(buffer);
+	UNUSED_MY(flags);
+	UNUSED_MY(width);
+	UNUSED_MY(precision);
+	UNUSED_MY(size);
 
 	n = va_arg(types, unsigned int);
 	m = 2147483648; /* (2 ^ 31) */

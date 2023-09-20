@@ -5,7 +5,7 @@ void my_print_buffer(char my_buffer[], int *my_buff_ind);
 /**
  * my_unique_printf - My unique printf function
  * @my_format: The format string
- * @my_printed: Argument
+ * @my_printed: Argument 
  * Return: The number of characters printed
  */
 int my_unique_printf(const char *my_format, ...)
