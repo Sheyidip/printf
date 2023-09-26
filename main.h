@@ -3,6 +3,7 @@
 
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 #define BUFF_SIZE 1024
 
@@ -10,24 +11,29 @@
 #define F_MINUS 1
 
 #define UNUSED(x) (void)(x)
+typedef struct format
+{
+	char*id;
+	int (*f)();
+} match;
 
-int print_char(va_list val);
+int _putchar(char c);
+int printf_char(va_list val);
 int _strlen(char *str);
+int _printf(const char *format, ...);
+int print_37(void);
+int print_percent(void);
 int _strlenc(const char *str);
-int _strlenc(const char *str);
-int print_binary(va_list val);
-int print_int(va_list args);
-int print_dec(va_list args);
-
-
-long int custom_convert_size_number(long int number, int size);
-int custom_write_number(int is_negative, int index, char buffer[], int flags, int width, int precision, int size);
-
-int custom_print_unsigned(va_list args, char buffer[]);
-int custom_print_octal(va_list args, char buffer[]);
-int custom_print_hexadecimal(va_list args, char buffer[]);
-int custom_print_hexa_upper(va_list args, char buffer[]);
-int custom_print_hexa(va_list args, char map_to[], char buffer[], char flag_ch);
-
+int printf_binary(va_list val);
+int printf_int(va_list args);
+int printf_dec(va_list args);
+int print_unsigned_int(va_list args);
+int print_oct(va_list val);
+int print_hex(va_list val);
+int print_Hex(va_list val);
+int print_exc_string(va_list val);
+int print_pointer(va_list val);
+int print_hex_extra(unsigned long int num);
+int print_rev_str(va_list val);
+int print_unsigned_int(va_list args);
 #endif /* MAIN_H */
-

@@ -2,13 +2,13 @@
 #include <stdarg.h>
 
 /**
- * print_char - function to print a character
+ * _printf_char - function to print a character
  * @val: Arguments
  * Return: 1
  */
-int print_char(va_list val)
+int _printf_char(va_list val)
 {
-        char str;
+	char str;
 
 	str = va_arg(val, int);
 	_putchar(str);
@@ -16,7 +16,7 @@ int print_char(va_list val)
 }
 
 /**
- * _strlen - returns the length of a string
+ * _strlen - function to returns the length of a string
  * @str: string pointer
  * Return: i
  */
@@ -28,7 +28,7 @@ int _strlen(char *str)
 	return (i);
 }
 /**
- * _strlen _strlen function for constant character
+ * _strlenc -  function for constant character
  * @str: character pointer
  * Return: i
  */
@@ -40,10 +40,10 @@ int _strlenc(const char *str)
 	return (i);
 }
 /**
- * print_percent - prints % sign
+ * _printf_percent - prints % sign
  * Return: integer
  */
-int print_percent(void)
+int _print_percent(void)
 {
 	_putchar(37);
 	return (1);
